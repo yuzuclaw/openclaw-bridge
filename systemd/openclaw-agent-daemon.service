@@ -1,0 +1,30 @@
+[Unit]
+Description=OpenClaw Bridge Local Agent Daemon
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/.openclaw/workspace/projects/openclaw-bridge
+# Relay target is user-defined. Override these in your real deployment.
+Environment=RELAY_WS_URL=ws://127.0.0.1:8888/v1/agent/ws
+Environment=RELAY_API_KEY=change-me
+Environment=AGENT_ID=local-exec-agent
+Environment=AGENT_NAME=local-openclaw-bridge
+Environment=AGENT_USER_ID=mark
+# Local agent model/provider are user-defined. Examples:
+#   LOCAL_AGENT_LLM_PROVIDER=ollama
+#   LOCAL_AGENT_LLM_BASE_URL=http://127.0.0.1:11434
+#   LOCAL_AGENT_LLM_MODEL=qwen3.5:0.8b
+# or:
+#   LOCAL_AGENT_LLM_PROVIDER=openrouter
+#   LOCAL_AGENT_LLM_BASE_URL=https://openrouter.ai/api
+#   LOCAL_AGENT_LLM_MODEL=openai/gpt-4.1-mini
+#   LOCAL_AGENT_LLM_API_KEY=...
+ExecStart=/home/ubuntu/.openclaw/workspace/projects/openclaw-bridge/scripts/run_agent_daemon.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

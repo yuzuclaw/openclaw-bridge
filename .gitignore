@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual env
+.venv/
+
+# Local data
+/data/*.db
+/data/*.sqlite
+/data/*.sqlite3
+
+# Logs / runtime
+*.log
+/tmp/
+
+# OS
+.DS_Store
