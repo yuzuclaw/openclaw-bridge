@@ -1,4 +1,4 @@
-# openclaw-bridge
+# openclaw-bridge（半成品，仅仅提供思路）
 
 最小透明桥：打通远程大脑到本地 agent 的鉴权、路由、转发、超时、审计和结果回传链路。
 
